@@ -1,6 +1,13 @@
 // Copyright (c) 2025 Geoffrey Huntley <ghuntley@ghuntley.com>. All rights reserved.
 // SPDX-License-Identifier: Proprietary
 
+//! eBPF audit loader for Linux systems.
+//!
+//! This module is only compiled on Linux with the `ebpf` feature enabled.
+//! On other platforms, the audit sidecar runs in stub mode without eBPF monitoring.
+
+#![cfg(all(feature = "ebpf", target_os = "linux"))]
+
 // The LoaderError enum is intentionally large due to the aya::programs::ProgramError
 // contained in the Attach variant. Boxing would add unnecessary complexity for
 // error types that are only used at startup/initialization time.

@@ -39,9 +39,6 @@ prometheus = "0.13"
 # Axum for health endpoint
 axum = "0.7"
 
-# eBPF userspace library
-aya = "0.13"
-
 # Cryptographic hashing
 sha2 = "0.10"
 
@@ -60,3 +57,8 @@ ebpf = []
 proptest = { workspace = true }
 tempfile = { workspace = true }
 tokio-test = { workspace = true }
+
+# Linux-only dependencies
+[target.'cfg(target_os = "linux")'.dependencies]
+# eBPF userspace library - Linux only (uses netlink, bpf syscalls)
+aya = "0.13"
