@@ -117,22 +117,22 @@
 	});
 
 	const diataxisLabels: Record<string, string> = {
-		tutorial: i18n('docs.search.category.tutorial'),
-		'how-to': i18n('docs.search.category.howTo'),
-		reference: i18n('docs.search.category.reference'),
-		explanation: i18n('docs.search.category.explanation'),
+		tutorial: i18n._('docs.search.category.tutorial'),
+		'how-to': i18n._('docs.search.category.howTo'),
+		reference: i18n._('docs.search.category.reference'),
+		explanation: i18n._('docs.search.category.explanation'),
 	};
 </script>
 
 <button class="search-trigger" onclick={() => (isOpen = true)}>
 	<span class="search-icon">⌕</span>
-	<span class="search-text">{i18n('docs.search.placeholder')}</span>
+	<span class="search-text">{i18n._('docs.search.placeholder')}</span>
 	<kbd class="search-kbd">⌘K</kbd>
 </button>
 
 {#if isOpen}
 	<div class="search-overlay" role="dialog" aria-modal="true" aria-label="Search documentation">
-		<button class="search-backdrop" onclick={close} aria-label={i18n('docs.search.close')}></button>
+		<button class="search-backdrop" onclick={close} aria-label={i18n._('docs.search.close')}></button>
 
 		<div class="search-modal">
 			<div class="search-header">
@@ -143,7 +143,7 @@
 					onkeydown={handleInputKeydown}
 					type="text"
 					class="search-input"
-					placeholder={i18n('docs.search.placeholderFull')}
+					placeholder={i18n._('docs.search.placeholderFull')}
 					aria-label="Search query"
 				/>
 				{#if loading}
@@ -175,19 +175,19 @@
 				</ul>
 			{:else if query.trim() && !loading}
 				<div class="search-empty">
-					<p>{i18n('docs.search.noResults')} "{query}"</p>
+					<p>{i18n._('docs.search.noResults')} "{query}"</p>
 				</div>
 			{:else if !query.trim()}
 				<div class="search-empty">
-					<p>{i18n('docs.search.hint')}</p>
+					<p>{i18n._('docs.search.hint')}</p>
 				</div>
 			{/if}
 
 			<div class="search-footer">
 				<span class="search-hint">
-					<kbd>↑</kbd><kbd>↓</kbd> {i18n('docs.search.key.navigate')}
-					<kbd>↵</kbd> {i18n('docs.search.key.select')}
-					<kbd>Esc</kbd> {i18n('docs.search.key.close')}
+					<kbd>↑</kbd><kbd>↓</kbd> {i18n._('docs.search.key.navigate')}
+					<kbd>↵</kbd> {i18n._('docs.search.key.select')}
+					<kbd>Esc</kbd> {i18n._('docs.search.key.close')}
 				</span>
 			</div>
 		</div>
