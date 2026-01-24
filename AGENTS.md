@@ -1,5 +1,7 @@
 # Loom Agent Guidelines
 
+This file provides guidance to Claude Code (claude.ai/code) and other AI coding assistants when working with code in this repository.
+
 ## Specifications
 
 **IMPORTANT:** Before implementing any feature, consult the specifications in `specs/README.md`.
@@ -190,6 +192,6 @@ if is_rtl(locale) {
 Arabic (`ar`) and other RTL locales require `dir="rtl"` on HTML elements. Use `loom_i18n::is_rtl()` to check.
 
 
-## 
+## Design Patterns
 
-- When multiple code paths do similar things with slight variations, create a shared service with a request struct that cpatures the variations, rather than having each caller implemnt its own logic.
+- When multiple code paths do similar things with slight variations, create a shared service with a request struct that captures the variations, rather than having each caller implement its own logic.
