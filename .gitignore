@@ -48,3 +48,23 @@ Thumbs.db
 
 # Database files
 loom.db*
+
+# Local environment
+.env
+.env.*
+
+# Claude Code
+.claude/
+
+# Playwright MCP screenshots
+.playwright-mcp/
+
+# Session-specific files
+CURRENT_SESSION_CONTEXT.md
+
+# Local convenience scripts/docs (not part of repo)
+main.sh
+/docs/
+
+# npm lockfile (project uses pnpm)
+package-lock.json
