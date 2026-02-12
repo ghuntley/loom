@@ -11,7 +11,7 @@ repository.workspace = true
 description = "GeoIP lookup service for Loom using MaxMind databases"
 
 [dependencies]
-maxminddb = "0.24"
+maxminddb = "0.27"
 thiserror.workspace = true
 tracing.workspace = true
 serde = { workspace = true, features = ["derive"] }
