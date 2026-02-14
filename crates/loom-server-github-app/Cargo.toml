@@ -25,7 +25,7 @@ tokio = { workspace = true }
 tracing = { workspace = true }
 
 # JWT signing
-jsonwebtoken = "9"
+jsonwebtoken = "10"
 
 # HMAC for webhook verification
 loom-common-webhook = { path = "../loom-common-webhook" }
