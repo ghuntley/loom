@@ -11,6 +11,7 @@ mod event_processor;
 mod events;
 mod filter;
 mod health;
+#[cfg(all(feature = "ebpf", target_os = "linux"))]
 mod loader;
 mod metrics;
 
@@ -30,7 +31,7 @@ use crate::config::Config;
 use crate::event_processor::{EventProcessor, EventProcessorConfig};
 use crate::events::WeaverAuditEvent;
 use crate::health::{health_router, HealthState};
-#[cfg(feature = "ebpf")]
+#[cfg(all(feature = "ebpf", target_os = "linux"))]
 use crate::loader::EbpfAuditLoader;
 use crate::metrics::Metrics;
 
@@ -181,6 +182,7 @@ async fn main() -> Result<()> {
 	));
 
 	// Bounded channel for raw eBPF events to prevent OOM from unbounded task spawning
+	#[allow(unused_variables)]
 	let (raw_event_tx, mut raw_event_rx) = mpsc::channel::<Vec<u8>>(1000);
 
 	// Spawn consumer task to process raw events
@@ -191,7 +193,7 @@ async fn main() -> Result<()> {
 		}
 	});
 
-	#[cfg(feature = "ebpf")]
+	#[cfg(all(feature = "ebpf", target_os = "linux"))]
 	let ebpf_loaded = match EbpfAuditLoader::new() {
 		Ok(loader) => {
 			let attached = loader.attached_count();
@@ -234,9 +236,9 @@ async fn main() -> Result<()> {
 		}
 	};
 
-	#[cfg(not(feature = "ebpf"))]
+	#[cfg(not(all(feature = "ebpf", target_os = "linux")))]
 	let ebpf_loaded = {
-		info!("eBPF feature not enabled, running in stub mode");
+		info!("eBPF not available (feature disabled or not on Linux), running in stub mode");
 		health_state.set_ebpf_status(0, 0).await;
 		false
 	};
