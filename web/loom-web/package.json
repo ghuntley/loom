@@ -37,7 +37,7 @@
 		"gemoji": "^8.1.0",
 		"marked": "^17.0.1",
 		"marked-emoji": "^2.0.2",
-		"svelte": "^5.46.1",
+		"svelte": "^5.51.5",
 		"svelte-i18n-lingui": "^0.2.2",
 		"xstate": "^5.25.0",
 		"zod": "^4.3.4"
