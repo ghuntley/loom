@@ -51,10 +51,11 @@ loom --version
 A **thread** is a conversation with the Loom AI agent. Let's create one:
 
 ```bash
-loom new "Help me write a React component"
+loom
 ```
 
-The agent will respond with suggestions and code. You can continue the conversation naturally.
+This opens a new interactive session in your current workspace. Start by typing a request such as
+`Help me write a React component`, then continue the conversation naturally.
 
 <Callout variant="tip">
 	Use descriptive prompts to get better results. Include context about your project, coding style preferences, and specific requirements.

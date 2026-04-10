@@ -27,41 +27,54 @@ Complete reference for all Loom CLI commands.
 
 ## Commands
 
-### `loom new`
+### `loom`
 
-Create a new thread with an initial message.
+Start a new interactive thread in the current workspace.
 
 ```bash
-loom new [message]
+loom
 ```
 
-**Options:**
-- `--image <path>` - Attach an image to the message
+### `loom list`
 
-**Examples:**
+List recent threads.
 
 ```bash
-loom new "Help me refactor this function"
-loom new "What's in this screenshot?" --image ./screenshot.png
+loom list
 ```
 
-### `loom attach`
+### `loom resume`
 
-Attach to an existing thread.
+Resume an existing thread. If no ID is provided, Loom resumes the most recent thread.
 
 ```bash
-loom attach <thread-id>
+loom resume
+loom resume <thread-id>
 ```
 
-### `loom threads`
+### `loom private`
 
-Manage threads.
+Start a private local-only thread that never syncs to the server.
 
 ```bash
-loom threads list          # List all threads
-loom threads show <id>     # Show thread details
-loom threads delete <id>   # Delete a thread
-loom threads export <id>   # Export thread to JSON
+loom private
+```
+
+### `loom search`
+
+Search threads by content, repository metadata, or commit SHA.
+
+```bash
+loom search "refactor auth flow"
+```
+
+### `loom share`
+
+Update the visibility of a synced thread or share it with support.
+
+```bash
+loom share <thread-id> --visibility public
+loom share <thread-id> --support
 ```
 
 ### `loom login`

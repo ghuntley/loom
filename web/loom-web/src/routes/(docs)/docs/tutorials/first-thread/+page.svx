@@ -35,7 +35,7 @@ A thread represents a complete conversation with the Loom agent. Each thread mai
 View all your threads:
 
 ```bash
-loom threads list
+loom list
 ```
 
 ### Continue a Thread
@@ -43,19 +43,20 @@ loom threads list
 Resume a previous conversation:
 
 ```bash
-loom threads attach <thread-id>
+loom resume <thread-id>
 ```
 
-### Export a Thread
+### Start a Private Thread
 
-Save a thread for later reference:
+Create a local-only session when you do not want conversation data synced to the server:
 
 ```bash
-loom threads export <thread-id> > my-thread.json
+loom private
 ```
 
 <Callout variant="warning">
-	Threads are stored on the server. Local exports are snapshots and won't sync updates.
+	Threads are stored locally first. If you are logged in, Loom will also try to sync them to the
+	server. Private threads created with `loom private` never sync.
 </Callout>
 
 ## Thread States
